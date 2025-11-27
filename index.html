@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>關於我 - 自我介紹</title>
+    <title>藍晨祐 - 個人簡介</title>
     <style>
         * {
             margin: 0;
@@ -21,7 +21,7 @@
         }
 
         .container {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
             background: white;
             border-radius: 20px;
@@ -37,15 +37,23 @@
         }
 
         .header h1 {
-            font-size: 2.5em;
+            font-size: 3em;
             margin-bottom: 10px;
             animation: fadeInDown 1s ease;
         }
 
-        .header p {
-            font-size: 1.2em;
-            opacity: 0.9;
+        .header .title {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            opacity: 0.95;
             animation: fadeInUp 1s ease;
+        }
+
+        .header .tagline {
+            font-size: 1.1em;
+            opacity: 0.9;
+            font-style: italic;
+            animation: fadeInUp 1.2s ease;
         }
 
         .content {
@@ -53,7 +61,7 @@
         }
 
         .section {
-            margin-bottom: 40px;
+            margin-bottom: 50px;
             animation: fadeIn 1.5s ease;
         }
 
@@ -63,6 +71,14 @@
             margin-bottom: 20px;
             padding-bottom: 10px;
             border-bottom: 3px solid #667eea;
+            display: flex;
+            align-items: center;
+        }
+
+        .section h2::before {
+            content: "▸";
+            margin-right: 10px;
+            color: #764ba2;
         }
 
         .section p {
@@ -72,42 +88,183 @@
             margin-bottom: 15px;
         }
 
+        .philosophy-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .philosophy-list li {
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: 1.05em;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .philosophy-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .skill-category h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
         .skills {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 15px;
+            gap: 8px;
         }
 
         .skill-tag {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
+            padding: 6px 14px;
+            border-radius: 15px;
             font-size: 0.9em;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .skill-tag:hover {
-            transform: scale(1.1);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+        }
+
+        .project {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .project h3 {
+            color: #667eea;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .project .tech-stack {
+            color: #764ba2;
+            font-size: 0.95em;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .project p {
+            margin-bottom: 12px;
+        }
+
+        .project a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            transition: color 0.3s ease;
+        }
+
+        .project a:hover {
+            color: #764ba2;
+        }
+
+        .project a::after {
+            content: " →";
+            margin-left: 5px;
+        }
+
+        .experience-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 4px solid #764ba2;
+        }
+
+        .experience-item h3 {
+            color: #764ba2;
+            font-size: 1.2em;
+            margin-bottom: 8px;
+        }
+
+        .experience-item .period {
+            color: #888;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .education-item, .cert-item {
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .education-item:last-child, .cert-item:last-child {
+            border-bottom: none;
+        }
+
+        .education-item strong, .cert-item strong {
+            color: #667eea;
         }
 
         .contact {
-            background: #f8f9fa;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             padding: 30px;
             border-radius: 10px;
             text-align: center;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
         }
 
         .contact a {
             color: #667eea;
             text-decoration: none;
             font-weight: bold;
-            transition: color 0.3s ease;
+            padding: 10px 20px;
+            background: white;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         .contact a:hover {
-            color: #764ba2;
+            color: white;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(102, 126, 234, 0.3);
         }
 
         @keyframes fadeIn {
@@ -151,61 +308,161 @@
             .content {
                 padding: 20px;
             }
+
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>歡迎來到我的個人網站</h1>
-            <p>這是一個關於我的自我介紹</p>
+            <h1>藍晨祐</h1>
+            <div class="title">大學四年級生</div>
+            <div class="tagline">致力於打造穩定且高效的數位解決方案</div>
         </div>
         
         <div class="content">
+            <!-- 關於我 -->
             <div class="section">
                 <h2>關於我</h2>
-                <p>
-                    你好！歡迎來到我的個人網站。我是一個對程式設計和網頁開發充滿熱忱的人。
-                    我喜歡學習新技術，並且享受將想法轉化為實際作品的過程。
-                </p>
-                <p>
-                    這個網站是使用 GitHub Pages 建立的，展示了我的基本資訊和技能。
-                    如果你有任何問題或想要聯繫我，歡迎透過下方的方式與我聯絡。
-                </p>
+                <p><strong>目前狀態：</strong>在學中</p>
+                <p><strong>個人特色與工作理念：</strong></p>
+                <ul class="philosophy-list">
+                    <li>喜歡用結構化思維分析問題，並以務實方式推動專案前進。</li>
+                    <li>遇到不熟悉的領域時，會主動研究並將知識轉化成可用的成果。</li>
+                    <li>相信溝通是打造好產品最重要的基礎，良好的協作能讓專案更順利。</li>
+                </ul>
             </div>
 
+            <!-- 技能專長 -->
             <div class="section">
-                <h2>技能</h2>
-                <p>以下是我目前掌握的技能：</p>
-                <div class="skills">
-                    <span class="skill-tag">HTML</span>
-                    <span class="skill-tag">CSS</span>
-                    <span class="skill-tag">JavaScript</span>
-                    <span class="skill-tag">Git</span>
-                    <span class="skill-tag">GitHub</span>
-                    <span class="skill-tag">網頁設計</span>
+                <h2>技能專長</h2>
+                <div class="skills-container">
+                    <div class="skill-category">
+                        <h3>程式語言</h3>
+                        <div class="skills">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">C#</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">PHP</span>
+                            <span class="skill-tag">HTML</span>
+                            <span class="skill-tag">CSS</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>資料庫</h3>
+                        <div class="skills">
+                            <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">MSSQL</span>
+                            <span class="skill-tag">Microsoft SQL Server</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>工具與平台</h3>
+                        <div class="skills">
+                            <span class="skill-tag">VS Code</span>
+                            <span class="skill-tag">ERP</span>
+                            <span class="skill-tag">NodeRed</span>
+                            <span class="skill-tag">Microsoft Expression Web 4</span>
+                            <span class="skill-tag">Power BI Desktop</span>
+                        </div>
+                    </div>
                 </div>
             </div>
 
+            <!-- 專案經驗 -->
             <div class="section">
-                <h2>興趣</h2>
-                <p>
-                    除了程式設計之外，我也喜歡閱讀、學習新事物，以及探索各種有趣的技術。
-                    我相信持續學習是成長的關鍵。
-                </p>
+                <h2>專案經驗</h2>
+                
+                <div class="project">
+                    <h3>銷售分析</h3>
+                    <div class="tech-stack">技術：Python, Microsoft SQL Server, SARIMA模型, K-Means聚類分析, 機器學習</div>
+                    <p>
+                        在 Microsoft SQL Server 中使用 Python 進行機器學習，使用 SARIMA 模型進行 2013 年至 2016 年的預測銷售金額，
+                        針對不同經營模式制定更精準的銷售策略；使用 K-Means 聚類分析進行不同經營模式下的銷售特徵，
+                        識別不同商品類型的銷售特徵，為營銷部門提供有效的分眾行銷策略建議。
+                    </p>
+                    <a href="https://github.com/mbolruael/salesanalysis" target="_blank">查看專案 →</a>
+                </div>
+
+                <div class="project">
+                    <h3>YouTube 爬蟲</h3>
+                    <div class="tech-stack">技術：Python 3.10.6, Microsoft SQL Server, 資料視覺化, 網頁開發</div>
+                    <p>
+                        使用 Python 3.10.6 進行開發，先將所需要的網頁連結、爬取內容處理完成，
+                        再進行資料視覺化及將爬取到的資料存入到 Microsoft SQL Server 中，
+                        確定存入好後再進行提取資料，最後進行資料寫入至網頁。
+                    </p>
+                    <a href="https://github.com/mbolruael/YouTube_crawler" target="_blank">查看專案 →</a>
+                </div>
             </div>
 
+            <!-- 工作經驗 -->
+            <div class="section">
+                <h2>工作經驗</h2>
+                
+                <div class="experience-item">
+                    <h3>工讀生</h3>
+                    <div class="period">龍益智動化股份有限公司 | 2025/09/01 ~ 現在</div>
+                    <p>持續開發其他不同之 ERP 模組，利於企業進行管理</p>
+                </div>
+
+                <div class="experience-item">
+                    <h3>實習生</h3>
+                    <div class="period">龍益智動化股份有限公司 | 2025/06/30 ~ 2025/08/31</div>
+                    <p>在期間主要進行學習開會討論 ERP 系統，以及開發 ERP 模組功能，利於公司進行任務管理</p>
+                </div>
+            </div>
+
+            <!-- 教育背景 -->
+            <div class="section">
+                <h2>教育背景</h2>
+                <div class="education-item">
+                    <strong>中山醫學大學 醫學資訊學系</strong> | 目前就讀中（2025）
+                </div>
+                <div class="education-item">
+                    <strong>嘉義市私立興華高級中學 高中部</strong> | 2022 畢業
+                </div>
+                <div class="education-item">
+                    <strong>嘉義市私立興華高級中學附設國中部</strong> | 2019 畢業
+                </div>
+                <div class="education-item">
+                    <strong>嘉義市僑平國小</strong> | 2016 畢業
+                </div>
+            </div>
+
+            <!-- 證照 -->
+            <div class="section">
+                <h2>證照與認證</h2>
+                <div class="cert-item">
+                    <strong>醫學資訊管理師</strong> | 2025/06 取得
+                </div>
+                <div class="cert-item">
+                    <strong>ISO 50001 能源管理師</strong> | 2024/06 取得
+                </div>
+                <div class="cert-item">
+                    <strong>AI-900 Microsoft Azure AI</strong> | 2022/11 取得
+                </div>
+            </div>
+
+            <!-- 聯絡方式 -->
             <div class="section contact">
                 <h2>聯絡方式</h2>
-                <p>
-                    GitHub: <a href="https://github.com/mbolruael" target="_blank">mbolruael</a>
-                </p>
-                <p>
-                    網站: <a href="https://mbolruael.github.io" target="_blank">https://mbolruael.github.io</a>
-                </p>
+                <div class="contact-links">
+                    <a href="https://mbolruael.github.io/index.html" target="_blank">個人網站</a>
+                    <a href="https://github.com/mbolruael" target="_blank">GitHub</a>
+                    <a href="https://www.linkedin.com/in/yuyumbolruael/" target="_blank">LinkedIn</a>
+                    <a href="mailto:davidblue8802@gmail.com">Email</a>
+                </div>
             </div>
         </div>
     </div>
 </body>
 </html>
-
