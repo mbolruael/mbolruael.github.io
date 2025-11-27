@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>關於我 - 自我介紹</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft JhengHei', '微軟正黑體', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            animation: fadeIn 1.5s ease;
+        }
+
+        .section h2 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .section p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            transform: scale(1.1);
+        }
+
+        .contact {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .contact a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .contact a:hover {
+            color: #764ba2;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>歡迎來到我的個人網站</h1>
+            <p>這是一個關於我的自我介紹</p>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <h2>關於我</h2>
+                <p>
+                    你好！歡迎來到我的個人網站。我是一個對程式設計和網頁開發充滿熱忱的人。
+                    我喜歡學習新技術，並且享受將想法轉化為實際作品的過程。
+                </p>
+                <p>
+                    這個網站是使用 GitHub Pages 建立的，展示了我的基本資訊和技能。
+                    如果你有任何問題或想要聯繫我，歡迎透過下方的方式與我聯絡。
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>技能</h2>
+                <p>以下是我目前掌握的技能：</p>
+                <div class="skills">
+                    <span class="skill-tag">HTML</span>
+                    <span class="skill-tag">CSS</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">Git</span>
+                    <span class="skill-tag">GitHub</span>
+                    <span class="skill-tag">網頁設計</span>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>興趣</h2>
+                <p>
+                    除了程式設計之外，我也喜歡閱讀、學習新事物，以及探索各種有趣的技術。
+                    我相信持續學習是成長的關鍵。
+                </p>
+            </div>
+
+            <div class="section contact">
+                <h2>聯絡方式</h2>
+                <p>
+                    GitHub: <a href="https://github.com/mbolruael" target="_blank">mbolruael</a>
+                </p>
+                <p>
+                    網站: <a href="https://mbolruael.github.io" target="_blank">https://mbolruael.github.io</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
